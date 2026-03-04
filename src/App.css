@@ -1,0 +1,114 @@
+.app{
+  background-color: #f5f0ec;
+  width: 100%;
+  height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-body{
+  background-color: #f4c49d;
+  width: 500px;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+}
+header div{
+  display: flex;
+  flex-direction: column;
+}
+
+.main-tabs{
+  display: flex;
+  list-style: none;
+  height: 40px;
+  background-color: #e9e2da;
+  border-radius: 10px;
+  padding-block: 2.5px;
+  padding-inline: 2.5px;
+
+
+}
+
+.main-tabs li{
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+}
+.main-tabs button{
+  border: none;
+  background-color: #e9e2da;
+  width: 100%;
+  height: 100%;
+  color: #8a837d;
+
+}
+
+
+.main-tabs .main-tab-selected{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  color: black;
+
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  height: fit-content;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.timer-type-task{
+  list-style: none;
+  /*background-color: #ddcd18;*/
+  display: flex;
+
+
+}
+
+.timer-type-task li{
+  margin-right: 10px;
+
+}
+.timer-type-task li button{
+  border-radius: 25px;
+  padding: 7px;
+  padding-inline: 15px;
+  border: #bcb6b0 1.5px solid;
+  color: #a59d97;
+  background-color: #ffffff;
+}
+
+.timer-type-task li .focus-tab-selected-btn,.start-btn{
+  background-color: #c33928;
+  color: white;
+  border: transparent 1.5px solid;
+
+
+
+
+}
+
+.start-btn{
+  border-radius: 25px;
+  padding: 7px;
+  padding-inline: 15px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+
+}
+
+
+.duration-presets-list{
+  display: flex;
+  list-style: none;
+}
