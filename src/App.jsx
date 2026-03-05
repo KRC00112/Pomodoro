@@ -129,18 +129,13 @@ function TimerTab({roundCount, timerType, timerState, timeLeft, durationType, pr
 }
 
 function TasksTab({addTask, closeTask, completeTask, removeAllCompletedTasks, tasksList, input,handleSetInput}){
-
-
-
-
-
     return (
         <div className="card tasks-tab">
             <div className='task-addition-section'>
                 <input className='task-input' type='text' placeholder='Add a task...' onChange={e=>handleSetInput(e.target.value)} value={input}></input>
                 <button className='add-task' onClick={addTask}>Add</button>
             </div>
-            <section className='task-section'>
+            {tasksList.length>0?<section className='task-section'>
                 {tasksList.map((task)=>{
                     return(
                         <div key={task.id} className='task-item'>
@@ -152,7 +147,7 @@ function TasksTab({addTask, closeTask, completeTask, removeAllCompletedTasks, ta
                         </div>
                     )
                 })}
-            </section>
+            </section>:<div className='empty-placeholder-msg'>No tasks yet. Add one above.</div>}
             <button className='clear-completed-tasks' onClick={removeAllCompletedTasks}>Clear Completed</button>
 
         </div>
@@ -309,13 +304,15 @@ function App() {
         <section className='main-body'>
 
             <header>
-                <div>
+                <div className='header-left'>
                     <div className='app-title'>Pomodoro</div>
                     <div className='date-time'>{formattedDate(new Date())}</div>
                 </div>
-                <div>
-                    <div>today</div>
-                    <div>Rounds Completed: {roundCount}</div>
+                <div className='header-right'>
+                    <div className='rounds-badge'>
+                        <span className='rounds-label'>ROUNDS COMPLETED: </span>
+                        <span className='rounds-count'>{roundCount}</span>
+                    </div>
                 </div>
             </header>
             <ul className='main-tabs'>

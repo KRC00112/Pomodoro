@@ -15,14 +15,60 @@
 
 }
 
-header{
+header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 16px;
 }
-header div{
+
+.header-left {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+}
+
+.app-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+}
+
+.date-time {
+  font-size: 12px;
+  color: #6e6b69;
+  letter-spacing: 0.3px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.rounds-badge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f0ebe5;
+  border: 1.5px solid #e0d9d1;
+  border-radius: 10px;
+  padding: 8px 16px;
+  gap: 1px;
+}
+
+.rounds-label {
+  font-size: 12px;
+  color: #6e6b69;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.rounds-count {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
 }
 
 .main-tabs{
@@ -176,7 +222,7 @@ header div{
   border-radius: 8px;
   border: 1.5px solid #e0d9d1;
   background-color: #faf8f5;
-  color: #636262;
+  color: #333;
   width: 100%;
   cursor: pointer;
   margin-top: 2px;
@@ -304,4 +350,14 @@ header div{
 
 .task-title{
   text-decoration: none;
+}
+
+.empty-placeholder-msg{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color: #333;
+
+
 }
