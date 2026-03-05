@@ -2,6 +2,7 @@ import './App.css'
 import {useEffect, useState} from "react";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import useLocalStorage from "use-local-storage";
 
 
 function MainCard({ roundCount, mainTabType, timerState, timerType, timeLeft, durationType, presetList, handleSetTimerType, handleResetBtn, handleSetDurationType, onClickChangeTimerStateBtn, addTask, closeTask, completeTask, removeAllCompletedTasks, tasksList, input,handleSetInput }) {
@@ -190,13 +191,13 @@ function App() {
     const [timerType, setTimerType] = useState('focus');
 
     const [mainTabType, setMainTabType] = useState('timer');
-    const [roundCount, setRoundCount] = useState(0);
+    const [roundCount, setRoundCount] = useLocalStorage('count',0);
     const [timerState, setTimerState] = useState('not_started');
     const [timeLeft, setTimeLeft] = useState(presetList[timerType][durationType]);
 
 
     const [input, setInput]=useState('')
-    const [tasksList, setTasksList] = useState([])
+    const [tasksList, setTasksList] = useLocalStorage('tasks',[])
 
     const handleSetInput=(input)=>{
         setInput(input)
