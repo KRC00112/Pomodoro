@@ -140,7 +140,7 @@ function TasksTab({addTask, closeTask, completeTask, removeAllCompletedTasks, ta
                     return(
                         <div key={task.id} className='task-item'>
                             <div className='task-item-left'>
-                                <input className='task-item-checkbox' type='checkbox' onClick={()=>completeTask(task.id)} ></input>
+                                <input title='Mark as Completed' className='task-item-checkbox' type='checkbox' onClick={()=>completeTask(task.id)} ></input>
                                 <div className={`${task.status==='complete'?'task-title-completed':'task-title'}`}>{task.title}</div>
                             </div>
                             <button onClick={()=>closeTask(task.id)}>close</button>
