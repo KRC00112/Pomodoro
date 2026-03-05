@@ -1,5 +1,7 @@
 import './App.css'
 import {useEffect, useState} from "react";
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 function MainCard({mainTabType}){
@@ -21,13 +23,23 @@ function MainCard({mainTabType}){
 
 
 function TimerTab(){
-    const originalTime=120;
-    const [timerTypeTab, setTimerTypeTab] = useState('focus');
+    // const originalTime=60;
+
+    const presetList={
+        focus:{'classic':1500,'deep':3000,'sprints':900},
+        short_break:{'classic':300,'deep':600,'sprints':180},
+        long_break:{'classic':900,'deep':1200,'sprints':600},
+
+    }
+    const [durationType, setDurationType] = useState('classic');
+
+    const [timerType, setTimerType] = useState('focus');
     const [timerState, setTimerState] = useState('not_started');
-    const [timeLeft, setTimeLeft] = useState(originalTime);
+    const [timeLeft, setTimeLeft] = useState(presetList[timerType][durationType]);
+
     const onClickChangeTimerStateBtn=()=>{
         if(timerState==='not_started'){
-            setTimeLeft(originalTime);
+            setTimeLeft(presetList[timerType][durationType]);
             setTimerState('started');
         }else if(timerState==='started'){
             setTimerState('paused');
@@ -35,6 +47,13 @@ function TimerTab(){
             setTimerState('started');
         }
     }
+
+    useEffect(() => {
+        setTimeLeft(presetList[timerType][durationType]);
+        setTimerState('not_started')
+
+    }, [durationType,timerType]);
+
 
     useEffect(()=>{
 
@@ -64,20 +83,45 @@ function TimerTab(){
     return (
         <div className="card timer-tab">
             <ul className='timer-type-task'>
-                <li><button className={timerTypeTab==='focus'?'focus-tab-selected-btn':''} onClick={()=>setTimerTypeTab('focus')}>Focus</button></li>
-                <li><button className={timerTypeTab==='shortb'?'focus-tab-selected-btn':''} onClick={()=>setTimerTypeTab('shortb')}>Short break</button></li>
-                <li><button className={timerTypeTab==='longb'?'focus-tab-selected-btn':''} onClick={()=>setTimerTypeTab('longb')}>Long break</button></li>
+                <li><button className={timerType==='focus'?'focus-type-tab-selected-btn':''} onClick={()=>setTimerType('focus')}>Focus</button></li>
+                <li><button className={timerType==='short_break'?'not-focus-type-tab-selected-btn':''} onClick={()=>setTimerType('short_break')}>Short break</button></li>
+                <li><button className={timerType==='long_break'?'not-focus-type-tab-selected-btn':''} onClick={()=>setTimerType('long_break')}>Long break</button></li>
             </ul>
-            <div>{`${Math.floor(timeLeft/60)}`.padStart(2,'0')}:{`${timeLeft%60}`.padStart(2,'0')}</div>
-            <div>
-                <button onClick={()=>{setTimeLeft(originalTime);setTimerState('not_started')}}>reset</button>
-                <button className='start-btn' onClick={onClickChangeTimerStateBtn}>{timerState==='started'?'pause':'start'}</button>
+            <div style={{width:'100px'}}>
+                <CircularProgressbar
+                    value={timeLeft}
+                    minValue={0}
+                    maxValue={presetList[timerType][durationType]}
+                    counterClockwise={true}
+                    strokeWidth={5}
+                    text={`${Math.floor(timeLeft/60).toString().padStart(2, '0')}:${(timeLeft % 60).toString().padStart(2, '0')}`}/>
             </div>
-            <label>DURATION PRESET</label>
+            <div className='timer-ops'>
+                <button className='reset-btn'  onClick={()=>{setTimeLeft(presetList[timerType][durationType]);setTimerState('not_started')}}>
+                    <img src="/reset.svg" alt="reset button"/>
+                </button>
+                <button className={`${timerType==='focus'?'start-btn':'start-btn-green'}`} onClick={onClickChangeTimerStateBtn}>{timerState==='started'?'pause':'start'}</button>
+            </div>
+            <label>DURATION PRESETS</label>
             <ul className='duration-presets-list'>
-                <li><button>Classic</button></li>
-                <li><button>Deep</button></li>
-                <li><button>Sprints</button></li>
+                <li>
+                    <button className={durationType==='classic'?'duration-type-btn-selected':''} onClick={()=>{setDurationType('classic');}}>
+                        <div>Classic</div>
+                        <div>{presetList[timerType]['classic']/60}m</div>
+                    </button>
+                </li>
+                <li>
+                    <button  className={durationType==='deep'?'duration-type-btn-selected':''} onClick={()=>{setDurationType('deep');}}>
+                        <div>Deep</div>
+                        <div>{presetList[timerType]['deep']/60}m</div>
+                    </button>
+                </li>
+                <li>
+                    <button className={durationType==='sprints'?'duration-type-btn-selected':''}  onClick={()=>{setDurationType('sprints');}}>
+                        <div>Sprints</div>
+                        <div>{presetList[timerType]['sprints']/60}m</div>
+                    </button>
+                </li>
             </ul>
         </div>
     )

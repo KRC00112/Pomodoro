@@ -6,8 +6,8 @@
 }
 
 .main-body{
-  background-color: #f4c49d;
-  width: 500px;
+  /*background-color: #f4c49d;*/
+  width: 400px;
 }
 
 header{
@@ -61,10 +61,11 @@ header div{
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
-  height: fit-content;
+  height: 400px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding-block: 25px;
 
 }
 
@@ -89,7 +90,7 @@ header div{
   background-color: #ffffff;
 }
 
-.timer-type-task li .focus-tab-selected-btn,.start-btn{
+.timer-type-task li .focus-type-tab-selected-btn,.start-btn{
   background-color: #c33928;
   color: white;
   border: transparent 1.5px solid;
@@ -99,16 +100,90 @@ header div{
 
 }
 
-.start-btn{
+.timer-type-task li .not-focus-type-tab-selected-btn,.start-btn-green{
+  background-color: #07bf07;
+  color: white;
+  border: transparent 1.5px solid;
+
+
+
+
+}
+
+
+
+.start-btn,.start-btn-green{
   border-radius: 25px;
   padding: 7px;
   padding-inline: 15px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  box-shadow: rgba(192, 57, 43, 0.333) 0px 4px 14px;
+}
+
+.start-btn-green{
+  box-shadow: rgba(110, 192, 43, 0.33) 0px 4px 14px;
 
 }
+
+.reset-btn{
+  border-radius: 50%;
+  padding: 0;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid rgb(224, 219, 212);
+  background-color: rgb(255, 255, 255);
+  color: rgb(153, 153, 153);
+  margin-right: 10px;
+
+}
+
+.reset-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.timer-ops{
+  display: flex;
+}
+
 
 
 .duration-presets-list{
   display: flex;
   list-style: none;
+}
+
+.duration-presets-list li{
+  margin-right: 10px;
+}
+
+.duration-presets-list button{
+  background-color: rgb(250, 248, 245);
+  border: 1.5px solid rgb(232, 226, 218);
+  padding: 13px;
+  padding-inline: 30px;
+  border-radius: 10px;
+  color: rgb(102, 102, 102);
+}
+
+.duration-presets-list button div:first-child{
+  color: rgb(34, 33, 33);
+  border: 1.5px solid transparent;
+
+
+}
+
+.duration-presets-list .duration-type-btn-selected{
+  background-color: black;
+}
+
+.duration-presets-list .duration-type-btn-selected div:first-child{
+  color: white;
+}
+
+.duration-presets-list .duration-type-btn-selected div:last-child{
+  color: rgb(154, 154, 154);
 }
