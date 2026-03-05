@@ -94,6 +94,18 @@ function TimerTab(){
                     maxValue={presetList[timerType][durationType]}
                     counterClockwise={true}
                     strokeWidth={5}
+                    styles={{
+                        text: {
+                            fill: '#000000',
+                            fontSize: '20px',
+                        },
+                        path: {
+                            stroke: timerType === 'focus' ? '#c33928' : '#27ae60',
+                        },
+                        trail: {
+                            stroke: '#d6d6d6',
+                        },
+                    }}
                     text={`${Math.floor(timeLeft/60).toString().padStart(2, '0')}:${(timeLeft % 60).toString().padStart(2, '0')}`}/>
             </div>
             <div className='timer-ops'>
@@ -102,7 +114,7 @@ function TimerTab(){
                 </button>
                 <button className={`${timerType==='focus'?'start-btn':'start-btn-green'}`} onClick={onClickChangeTimerStateBtn}>{timerState==='started'?'pause':'start'}</button>
             </div>
-            <label>DURATION PRESETS</label>
+            <label className='duration-presets-label'>DURATION PRESETS</label>
             <ul className='duration-presets-list'>
                 <li>
                     <button className={durationType==='classic'?'duration-type-btn-selected':''} onClick={()=>{setDurationType('classic');}}>
@@ -128,9 +140,73 @@ function TimerTab(){
 }
 
 function TasksTab(){
+
+    const [input, setInput]=useState('')
+    const [tasksList, setTasksList] = useState([])
+
+    useEffect(()=>{
+        console.log(input)
+    },[input])
+
+    const addTask=()=>{
+        if(input) {
+            setTasksList([
+                ...tasksList,
+                {id: Date.now(), title: input, status:'not_complete'},
+            ])
+            setInput('')
+        }
+    }
+
+    const closeTask=(id)=>{
+        setTasksList(
+            tasksList.filter(task=>task.id !== id)
+        )
+    }
+
+    const completeTask=(id)=>{
+        setTasksList(
+            tasksList.map((task)=>{
+                if(task.id === id){
+                    if(task.status==='not_complete') {
+                        return {...task, status: 'complete'}
+                    }else{
+                        return {...task, status: 'not_complete'};
+
+                    }
+                }
+                return task;
+            })
+        )
+    }
+
+    const removeAllCompletedTasks=()=>{
+        setTasksList(
+            tasksList.filter(task=>task.status === 'not_complete')
+        )
+    }
+
     return (
         <div className="card tasks-tab">
-            <>tasks</>
+            <div className='task-addition-section'>
+                <input className='task-input' type='text' placeholder='Add a task...' onChange={e=>setInput(e.target.value)} value={input}></input>
+                <button className='add-task' onClick={addTask}>Add</button>
+            </div>
+            <section className='task-section'>
+                {tasksList.map((task)=>{
+                    return(
+                        <div key={task.id} className='task-item'>
+                            <div className='task-item-left'>
+                                <input className='task-item-checkbox' type='checkbox' onClick={()=>completeTask(task.id)} ></input>
+                                <div className={`${task.status==='complete'?'task-title-completed':'task-title'}`}>{task.title}</div>
+                            </div>
+                            <button onClick={()=>closeTask(task.id)}>close</button>
+                        </div>
+                    )
+                })}
+            </section>
+            <button className='clear-completed-tasks' onClick={removeAllCompletedTasks}>Clear Completed</button>
+
         </div>
     )
 }
