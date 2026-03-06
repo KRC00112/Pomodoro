@@ -139,12 +139,12 @@ function TasksTab({addTask, closeTask, completeTask, removeAllCompletedTasks, ta
             {tasksList.length>0?<section className='task-section'>
                 {tasksList.map((task)=>{
                     return(
-                        <div key={task.id} className='task-item'>
+                        <div key={task.id} className='task-item' onClick={()=>completeTask(task.id)} >
                             <div className='task-item-left'>
-                                <input title='Mark as Completed' className='task-item-checkbox' type='checkbox' onClick={()=>completeTask(task.id)} ></input>
+                                <input title='Mark as Completed' className='task-item-checkbox' type='checkbox' checked={task.status==="complete"}></input>
                                 <div className={`${task.status==='complete'?'task-title-completed':'task-title'}`}>{task.title}</div>
                             </div>
-                            <button onClick={()=>closeTask(task.id)}>close</button>
+                            <button onClick={(e)=>closeTask(task.id,e)}>close</button>
                         </div>
                     )
                 })}
@@ -212,7 +212,8 @@ function App() {
         }
     }
 
-    const closeTask=(id)=>{
+    const closeTask=(id,e)=>{
+        e.stopPropagation();
         setTasksList(
             tasksList.filter(task=>task.id !== id)
         )

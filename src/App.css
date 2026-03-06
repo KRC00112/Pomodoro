@@ -185,6 +185,8 @@ header {
   margin-bottom: 8px;
   background-color: #faf8f5;
   box-sizing: border-box;
+  user-select: none;
+
 }
 
 .task-item-left{
@@ -350,6 +352,7 @@ header {
 
 .task-title{
   text-decoration: none;
+  color: #333;
 }
 
 .empty-placeholder-msg{
