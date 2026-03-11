@@ -1,1 +1,1 @@
-A small Pomodoro application
+A small Pomodoro application for docker project
