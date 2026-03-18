@@ -47,21 +47,6 @@ The Docker Compose file adds a health check that pings `http://localhost` every 
 
 ---
 
-## Project Structure
-
-```
-├── src/               # React source code
-│   ├── App.jsx        # Main app component (timer, tasks logic)
-│   └── App.css        # Styles
-├── public/            # Static assets
-├── Dockerfile         # Multi-stage Docker build
-├── docker-compose.yml # Compose config with health check
-├── vite.config.js     # Vite configuration
-└── index.html         # HTML entry point
-```
-
----
-
 ## Purpose
 
 This project was built to practice and learn:
