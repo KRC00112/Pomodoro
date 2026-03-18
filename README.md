@@ -24,8 +24,6 @@ A simple Pomodoro timer and task manager web app, built as a hands-on project fo
 
 ---
 
-## Getting Started
-
 ### Run with Docker Compose
 
 ```bash
