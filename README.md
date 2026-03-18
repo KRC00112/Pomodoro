@@ -26,11 +26,6 @@ A simple Pomodoro timer and task manager web app, built as a hands-on project fo
 
 ## Getting Started
 
-### Prerequisites
-
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-
 ### Run with Docker Compose
 
 ```bash
