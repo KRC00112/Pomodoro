@@ -61,9 +61,6 @@ This project was built to practice and learn:
 ## Docker Hub
 
 The image is available on Docker Hub:
-[Here](https://hub.docker.com/repository/docker/krcdocker2138/pomodoro-todo-webapp/general)
-
-and it can be pulled using:
 
 ```bash
 docker pull krcdocker2138/pomodoro-todo-webapp
