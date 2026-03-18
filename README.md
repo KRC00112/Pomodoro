@@ -6,9 +6,8 @@ A simple Pomodoro timer and task manager web app, built as a hands-on project fo
 
 ## Features
 
-- **Timer** — Focus, short break, and long break modes with Classic, Deep, and Sprint duration presets
+- **Timer** — Focus, short break, and long break modes with Classic, Deep, and Sprint duration presets; Number of rounds completed are kept track of only in focus mode
 - **Tasks** — Add, complete, and remove tasks; completed tasks persist via local storage
-- **Round tracking** — Tracks completed focus rounds, persisted across sessions
   
 ---
 
