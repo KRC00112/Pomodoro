@@ -10,7 +10,6 @@
 }
 
 .main-body{
-  /*background-color: #f4c49d;*/
   width: 400px;
 
 }
@@ -128,7 +127,6 @@ header {
   align-items: flex-start;
   padding: 30px;
   width: 100%;
-  /*background-color: #e9e2da;*/
 }
 
 
@@ -238,7 +236,6 @@ header {
 
 .timer-type-task{
   list-style: none;
-  /*background-color: #ddcd18;*/
   display: flex;
 
 
@@ -361,6 +358,37 @@ header {
   justify-content: center;
   font-size: 14px;
   color: #333;
+}
 
+@media (max-width: 440px) {
+  .app {
+    align-items: flex-start;
+    height: auto;
+    min-height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+  }
 
+  .main-body {
+    width: 100%;
+  }
+
+  .card {
+    height: auto;
+    min-height: 400px;
+  }
+
+  .duration-presets-list {
+    padding-inline: 0;
+  }
+
+  .duration-presets-list button {
+    padding: 10px;
+    padding-inline: 16px;
+  }
+
+  .timer-type-task li button {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
 }
