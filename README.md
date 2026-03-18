@@ -24,7 +24,7 @@ A simple Pomodoro timer and task manager web app, built as a hands-on project fo
 
 ---
 
-### Run with Docker Compose
+## Run with Docker Compose
 
 ```bash
 git clone https://github.com/KRC00112/Pomodoro.git
