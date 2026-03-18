@@ -1,4 +1,4 @@
-# 🐳 Pomodoro and Timer App
+# 🐳 Pomodoro and To-do App
 
 A simple Pomodoro timer and task manager web app, built as a hands-on project for learning Docker and containerized deployments.
 
