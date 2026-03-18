@@ -191,14 +191,13 @@ function App() {
     const [timerType, setTimerType] = useState('focus');
 
     const [mainTabType, setMainTabType] = useState('timer');
-    const [roundCount, setRoundCount] = useState(0);
+    const [roundCount, setRoundCount] = useLocalStorage("roundCount", 0);
     const [timerState, setTimerState] = useState('not_started');
     const [timeLeft, setTimeLeft] = useState(presetList[timerType][durationType]);
 
 
     const [input, setInput]=useState('')
-    const [tasksList, setTasksList] = useState([])
-
+    const [tasksList, setTasksList] = useLocalStorage("tasksList", []);
 
     const handleSetInput=(input)=>{
         setInput(input)
