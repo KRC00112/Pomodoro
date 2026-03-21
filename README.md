@@ -58,6 +58,19 @@ This project was built to practice and learn:
 - Publishing images to **Docker Hub**
 
 ---
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td colspan="2" align="center"><img src="screenshots/Capture1.PNG"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/Capture2.PNG"/></td>
+    <td><img src="screenshots/Capture3.PNG"/></td>
+  </tr>
+</table>
+
+---
 
 ## Docker Hub
 
