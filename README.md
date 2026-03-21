@@ -58,7 +58,7 @@ This project was built to practice and learn:
 - Publishing images to **Docker Hub**
 
 ---
-## 📸 Screenshots
+## Screenshots
 
 <table>
   <tr>
